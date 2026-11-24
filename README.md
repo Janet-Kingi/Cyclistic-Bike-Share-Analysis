@@ -174,7 +174,7 @@ WHERE ride_length > 0 AND ride_length < 1441;
 Some cells have **null** such as start_station_name and end_station_name but the number of rows with **null** in the columns are quite significant so i did not delete the rows as deleting these rows would significantly reduce the data set.
 
 ---
-### step 4: Analyze
+### Step 4: Analyze
 In this step four of the data analysis process, I analyzed the relationship across columns to identify key trends that helped me understand the difference between the riding habits of members riders vs casual riders.
 
 To find the total rides by casual and member riders, i ran the query below:
@@ -272,7 +272,7 @@ I ran the query below to find the total rides for casual riders by start station
 -- Analysis Stage 6: Identify the top 10 starting stations for casual riders (excluding NULL station names)
 SELECT
   start_station_name,
-  COUNT(ride_id) AS total_rides,
+  COUNT(ride_id) AS total_rides
 FROM
   `level-prism-506809-s2.cyclistic_tripdata.cyclistic_tripdata filtered`
 WHERE
@@ -289,7 +289,7 @@ I ran the query below to find the total rides for member riders by start station
 -- Analysis Stage 7: Identify the top 10 starting stations for annual members riders (excluding NULL station names)
 SELECT
   start_station_name,
-  COUNT(ride_id) AS total_rides,
+  COUNT(ride_id) AS total_rides
 FROM
   `level-prism-506809-s2.cyclistic_tripdata.cyclistic_tripdata filtered`
 WHERE
@@ -300,6 +300,12 @@ ORDER BY
   total_rides DESC
 LIMIT 10;
 ```
+
+---
+### Step 5 & 6: Visualize and Share
+In this phase, I visualized key trends and relationships using Tableau. These visualizations will help to interpret and  understand the SQL queries above very easily.
+
+**Compared total number of rides between casual vs member riders:** The visualization below shows that bike usage among member riders is more compared to the casual riders.
 
 
 
