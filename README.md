@@ -173,4 +173,135 @@ WHERE ride_length > 0 AND ride_length < 1441;
 ```
 Some cells have **null** such as start_station_name and end_station_name but the number of rows with **null** in the columns are quite significant so i did not delete the rows as deleting these rows would significantly reduce the data set.
 
+---
+### step 4: Analyze
+In this step four of the data analysis process, I analyzed the relationship across columns to identify key trends that helped me understand the difference between the riding habits of members riders vs casual riders.
+
+To find the total rides by casual and member riders, i ran the query below:
+
+```sql
+/*
+Project: Cyclistic Bike-Share Analysis
+Step 5: Analysis stage 1 - Compare total rides between annual members and casual riders.
+Source Table: cyclistic_tripdata filtered (cleaned ride_length between 1 and 1,440 minutes)
+Author: Janet Kadzo Kingi
+*/
+SELECT
+  member_casual,
+  COUNT(ride_id) AS total_rides
+FROM
+  `level-prism-506809-s2.cyclistic_tripdata.cyclistic_tripdata filtered`
+GROUP BY
+  member_casual;
+```
+I ran the query below to find the total rides and average ride length for each day of the week by casual and member riders.
+
+```sql
+-- Analysis Stage 2: Compare total rides between annual members and casual riders by day of week (1 = Sunday, 7 = Saturday)
+SELECT
+  member_casual,
+  day_of_week,
+  COUNT(ride_id) AS total_rides,
+  ROUND(AVG(ride_length), 2) AS avg_ride_length
+FROM
+  `level-prism-506809-s2.cyclistic_tripdata.cyclistic_tripdata filtered`
+GROUP BY
+  member_casual,
+  day_of_week
+ORDER BY
+  member_casual,
+  day_of_week;
+  ```
+I ran the query below to find the total rides and average ride length for each month by casual and member riders.
+
+```sql
+-- Analysis Stage 3: Compare monthly total rides and average ride duration across seasons (1 = Jan, 12 = Dec)
+SELECT
+  member_casual,
+  EXTRACT(month FROM started_at) AS month,
+  COUNT(ride_id) AS total_rides,
+  ROUND(AVG(ride_length), 2) AS avg_ride_length
+FROM
+  `level-prism-506809-s2.cyclistic_tripdata.cyclistic_tripdata filtered`
+GROUP BY
+  member_casual,
+  month
+ORDER BY
+  member_casual,
+  month;
+```
+I ran the query below to find the total rides and average ride length for every hour by casual and member riders.
+
+```sql
+-- Analysis Stage 4: Compare hourly total rides and average duration (0 = 12 AM, 23 = 11 PM) to identify commuter rush hours vs. leisure peaks between annual members and casual riders
+SELECT
+  member_casual,
+  EXTRACT(hour FROM started_at) AS hour_of_day,
+  COUNT(ride_id) AS total_rides,
+  ROUND(AVG(ride_length), 2) AS avg_ride_length
+FROM
+  `level-prism-506809-s2.cyclistic_tripdata.cyclistic_tripdata filtered`
+GROUP BY
+  member_casual,
+  hour_of_day
+ORDER BY
+  member_casual,
+  hour_of_day;
+```
+I ran the query below to find total rides and average ride length for different ride types by casual and member riders.
+
+```sql
+-- Analysis Stage 5: Compare total rides and average ride duration by bike type (classic, electric, docked) between annual members and casual riders
+SELECT
+  member_casual,
+  rideable_type,
+  COUNT(ride_id) AS total_rides,
+  ROUND(AVG(ride_length), 2) AS avg_ride_length
+FROM
+  `level-prism-506809-s2.cyclistic_tripdata.cyclistic_tripdata filtered`
+GROUP BY
+  member_casual,
+  rideable_type
+ORDER BY
+  member_casual,
+  total_rides DESC;
+```
+I ran the query below to find the total rides for casual riders by start station name.
+
+```sql
+-- Analysis Stage 6: Identify the top 10 starting stations for casual riders (excluding NULL station names)
+SELECT
+  start_station_name,
+  COUNT(ride_id) AS total_rides,
+FROM
+  `level-prism-506809-s2.cyclistic_tripdata.cyclistic_tripdata filtered`
+WHERE
+  member_casual = 'casual' AND start_station_name is not null
+GROUP BY
+  start_station_name
+ORDER BY
+  total_rides DESC
+LIMIT 10;
+```
+I ran the query below to find the total rides for member riders by start station name.
+
+```sql
+-- Analysis Stage 7: Identify the top 10 starting stations for annual members riders (excluding NULL station names)
+SELECT
+  start_station_name,
+  COUNT(ride_id) AS total_rides,
+FROM
+  `level-prism-506809-s2.cyclistic_tripdata.cyclistic_tripdata filtered`
+WHERE
+  member_casual = 'member' AND start_station_name is not null
+GROUP BY
+  start_station_name
+ORDER BY
+  total_rides DESC
+LIMIT 10;
+```
+
+
+
+
 
