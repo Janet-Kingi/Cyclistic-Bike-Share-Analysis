@@ -307,6 +307,9 @@ In this phase, I visualized key trends and relationships using Tableau. These vi
 
 **Compared total number of rides between casual vs member riders:** The visualization below shows that bike usage among member riders is more compared to the casual riders.
 
+![Total Ride Count of Members vs Casual Riders](Sheet%201.png)
+
+**Compared total number of rides per day of the week between casual and member riders:** The visualization below indicates that, for casual riders, Saturday experiences the highest number of rides, whereas Tuesday experiences the lowest number of rides. On the other hand, for member riders, Thursday experiences the highest number of rides, whereas Sunday experiences the lowest number of rides.
 
 
 
