@@ -66,4 +66,111 @@ This step we will address the data source that we will use for analysis and the 
 
 **Data Source:** The data used for analysis is the Cyclistic's historical data from January 2022 to December 2022 which is a public dataset that has been made available by Motivate International Inc. will be used to analyze and identify trends. [Click Here](https://https://divvy-tripdata.s3.amazonaws.com/index.html) for the dataset.
 
+**Data Information:** In the data source there are 12 files files in total and each file contains data for a specific month including other details such as ride ID, start time, end time, start station, end station, bike type, start location, end location, and member status. The corresponding column names are: 
+1. ride_id
+2. rideable_type
+3. started_at
+4. ended_at
+5. start_station_id
+6. end_station_id
+7. start_station_name
+8. end_station_name
+9. start_lat
+10. start_lng
+11. end_lat
+12. end_lng
+13. member_casual
+
+---
+### Step 3: Process
+
+This process involves cleaning the data to get rid of any possible errors, inaccuracies, inconsistencies and saving the final data set that will be used for analysis.
+
+**Tool:** I will be processing and analyzing the data using SQL in BigQuery, I uploaded all the 12 files in BigQuery and combined them into one table named **"cyclistic_tripdata_jan2022_dec2022"** using the **UNION ALL** query as below:
+
+```sql
+/*
+Project: Cyclistic Bike-Share Analysis
+Step 1: Combine 12 months of historical trip data (Jan 2022 – Dec 2022) into a single table.
+Author: Janet Kadzo Kingi
+*/
+CREATE TABLE `level-prism-506809-s2.cyclistic_tripdata.cyclistic_tripdata_jan2022_dec2022` AS
+SELECT * FROM `level-prism-506809-s2.cyclistic_tripdata.tripdata_202112`
+UNION ALL
+SELECT * FROM `level-prism-506809-s2.cyclistic_tripdata.tripdata_202201`
+UNION ALL
+SELECT * FROM `level-prism-506809-s2.cyclistic_tripdata.tripdata_202202`
+UNION ALL
+SELECT * FROM `level-prism-506809-s2.cyclistic_tripdata.tripdata_202203`
+UNION ALL
+SELECT * FROM `level-prism-506809-s2.cyclistic_tripdata.tripdata_202204`
+UNION ALL
+SELECT * FROM `level-prism-506809-s2.cyclistic_tripdata.tripdata_202205`
+UNION ALL
+SELECT * FROM `level-prism-506809-s2.cyclistic_tripdata.tripdata_202206`
+UNION ALL
+SELECT * FROM `level-prism-506809-s2.cyclistic_tripdata.tripdata_202207`
+UNION ALL
+SELECT * FROM `level-prism-506809-s2.cyclistic_tripdata.tripdata_202208`
+UNION ALL
+SELECT * FROM `level-prism-506809-s2.cyclistic_tripdata.tripdata_202209`
+UNION ALL
+SELECT * FROM `level-prism-506809-s2.cyclistic_tripdata.tripdata_202210`
+UNION ALL
+SELECT * FROM `level-prism-506809-s2.cyclistic_tripdata.tripdata_202211`;
+```
+Then to check the total row numbers, we perform this SQL query. The combined dataset **"cyclistic_tripdata_jan2022_dec2022"** has a total of 5,733,451 rows:
+
+```sql
+/*
+Project: Cyclistic Bike-Share Analysis
+Step 2: Check total row count of the combined 12-month dataset.
+Result: 5,733,451 total records confirmed across the 12 combined tables.
+Author: Janet Kadzo Kingi
+*/
+SELECT
+COUNT(*) AS Total_records
+FROM
+  `level-prism-506809-s2.cyclistic_tripdata.cyclistic_tripdata_jan2022_dec2022`
+```
+To preview the first 10 rows of the dataset so that we can understand the dataset better we perform this SQL query:
+
+```sql
+-- Preview the first 10 rows to inspect column structure and understand the dataset better
+SELECT *
+FROM
+  `level-prism-506809-s2.cyclistic_tripdata.cyclistic_tripdata_jan2022_dec2022`
+LIMIT 10;
+```
+I created a new table named **cyclistic_tripdata final** with additional columns **ride_length** and **day_of_week** by running the query below:
+
+```sql
+/*
+Project: Cyclistic Bike-Share Analysis
+Step 3: Create new columns for ride length (in minutes) and day of week.
+Note: In BigQuery EXTRACT(dayofweek FROM ...), 1 = Sunday through 7 = Saturday.
+Author: Janet Kadzo Kingi
+*/
+CREATE TABLE `level-prism-506809-s2.cyclistic_tripdata.cyclistic_tripdata final` AS
+SELECT *,
+TIMESTAMP_DIFF(ended_at, started_at, MINUTE) AS ride_length,
+EXTRACT(dayofweek FROM started_at) AS day_of_week
+FROM `level-prism-506809-s2.cyclistic_tripdata.cyclistic_tripdata_jan2022_dec2022`
+```
+I observed that some cells in column ride_ length are equal to **"0"** and some longer than 24 hours **(1440 minutes)** which might not provide a correct average ride length for all rides, so i created a new table named **cyclistic_tripdata filtered** whereby the column ride_length has values greater than **0** and less than **1441** using the query below:
+
+```sql
+/*
+Project: Cyclistic Bike-Share Analysis
+Step 4: Data Cleaning - Created a new table that filtered out zero-minute rides and rides longer than 24 hours (1,440 minutes).
+Reason: Zero-length rides and rides longer than 24 hours (1,440 minutes) will not provide a correct avarage ride length.
+Author: Janet Kadzo Kingi
+*/
+CREATE TABLE `level-prism-506809-s2.cyclistic_tripdata.cyclistic_tripdata filtered` AS
+SELECT *,
+FROM `level-prism-506809-s2.cyclistic_tripdata.cyclistic_tripdata final`
+WHERE ride_length > 0 AND ride_length < 1441;
+```
+Some cells have **null** such as start_station_name and end_station_name but the number of rows with **null** in the columns are quite significant so i did not delete the rows as deleting these rows would significantly reduce the data set.
+
 
