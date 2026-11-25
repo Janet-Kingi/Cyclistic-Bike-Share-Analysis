@@ -317,9 +317,14 @@ In this phase, I visualized key trends and relationships using Tableau. These vi
 
 ![Total number of rides per month](Sheet%203.png)
 
-**Compared total number of rides per hour:** The visualization below shows that member riders have two peak times—at 8 AM (202,283 rides) and 5 PM (345,201 rides) which aligns with work commuting hours. On the other hand, casual rides increase gradually throughout the afternoon and peak at 5 PM (217,121 rides). Both rider types record their lowest number of rides at 4 AM.
+**Compared total number of rides per hour between casual and member riders:** The visualization below shows that member riders have two peak times at 8 AM (202,283 rides) and 5 PM (345,201 rides) which aligns with work commuting hours. On the other hand, casual rides increase gradually throughout the afternoon and peak at 5 PM (217,121 rides).
 
 ![Total number of rides per hour](Sheet%204.png)
+
+**Compared total number of rides per ride type between casual and member riders:** The visualization below indicates that electric bikes are preferred by casual riders, while member riders prefer using classic bikes.
+
+![Total number of rides per ride type](Sheet%205.png)
+
 
 
 
