@@ -330,7 +330,14 @@ In this phase, I visualized key trends and relationships using Tableau. These vi
 ![Top 10 start stations for casual riders per total number of rides](Sheet%206.png)
 
 
-![Top 10 start stations for member riders per total number of rides](sheet%207.png)
+![Top 10 start stations for member riders per total number of rides](Sheet%207.png)
+
+---
+### Step 7: Act
+In this phase i will provide conclusions and recommendations based on the analysis in the previous two phases. Based on these findings the company can make decisions to convert casual riders to members.
+
+---
+### Conclusions:
 
 
 
