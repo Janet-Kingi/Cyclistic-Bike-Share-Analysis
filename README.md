@@ -325,6 +325,12 @@ In this phase, I visualized key trends and relationships using Tableau. These vi
 
 ![Total number of rides per ride type](Sheet%205.png)
 
+**Identified top 10 start stations for casual and member riders:** The graph below shows the top ten start stations for both casual riders and member riders.
+
+![Top 10 start stations for casual riders per total number of rides](Sheet%206.png)
+
+![Top 10 start stations for casual riders per total number of rides](sheet%207.png)
+
 
 
 
