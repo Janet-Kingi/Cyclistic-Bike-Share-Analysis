@@ -313,6 +313,10 @@ In this phase, I visualized key trends and relationships using Tableau. These vi
 
 ![Total number of rides per day of the week](Sheet%202.png)
 
+**Compared total number of rides per month between casual and member riders:** The visualization below highlights that for casual riders, July 2022 had the highest number of bike rides followed by June 2022. On the other hand, for member riders, August 2022 had the highest number of bike rides followed by July 2022. January 2022 had the least number of bike rides for both casual and member riders.
+
+
+
 
 
 
