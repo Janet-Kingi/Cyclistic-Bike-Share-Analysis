@@ -334,16 +334,20 @@ In this phase, I visualized key trends and relationships using Tableau. These vi
 
 ---
 ### Step 7: Act
-In this phase i will provide conclusions and recommendations based on the analysis in the previous two phases. Based on these findings the company can make decisions to convert casual riders to members.
+In this phase I will provide conclusions and recommendations based on the analysis in the previous two phases. Based on these findings the company can make decisions to convert casual riders to members.
 
 ---
-### Conclusions:
+**Conclusions:**
 
-
-
-
-
-
+* Members prefer using classic bikes to electric bikes while casual riders prefer using electric bikes.
+* Docked bikes are only used by casual riders.
+* Member riders use bikes more than casual riders.
+* For casual riders Saturday is the most popular day while Thursday is the most popular day for member riders.
+* July 2022 experienced the highest number of rides for casual riders while for member riders August 2022 experienced the highest number of rides.
+* January 2022 had the least number of bike rides for both casual and member riders.
+*  Member rides peak during morning (8 AM) and evening (5 PM) commuting hours, whereas casual rides build gradually throughout the afternoon and peak at 5 PM.
+* The top three stations for casual riders are Streeter Dr & Grand Ave, DuSable Lake Shore Dr & Monroe St, Millennium Park.
+*  The top three stations for member riders are Kingsbury St & Kinzie St, Clark St Elm St, Wells St & Concord Ln.
 
 
 
