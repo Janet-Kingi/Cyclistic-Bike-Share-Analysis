@@ -330,7 +330,7 @@ In this phase, I visualized key trends and relationships using Tableau. These vi
 ![Top 10 start stations for casual riders per total number of rides](Sheet%206.png)
 
 
-![Top 10 start stations for member riders per total number of rides](Sheet%207.png)
+![Top 10 start stations for member riders per total number of rides](Sheet%207%20(1).png)
 
 ---
 ### Step 7: Act
