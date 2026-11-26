@@ -349,6 +349,13 @@ In this phase I will provide conclusions and recommendations based on the analys
 * The top three stations for casual riders are Streeter Dr & Grand Ave, DuSable Lake Shore Dr & Monroe St, Millennium Park.
 *  The top three stations for member riders are Kingsbury St & Kinzie St, Clark St Elm St, Wells St & Concord Ln.
 
+---
+**Recommendations:**
+
+* **Offer Weekend and Summer Memberships:** Since casual riders peak on Saturdays and in July, introduce weekend or seasonal passes to encourage them to become annual members.
+* **Advertise at Popular Casual Stations:** Place ads and QR-code promos at top casual stations—Streeter Dr & Grand Ave, DuSable Lake Shore Dr & Monroe St, and Millennium Park—to show riders the cost savings of an annual membership.
+* **Give Electric Bike Discounts to Members:** Since casual riders prefer electric bikes, offer lower e-bike rates or free unlocks as a reward for upgrading to an annual membership.
+
 
 
 
