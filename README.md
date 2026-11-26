@@ -315,7 +315,7 @@ In this phase, I visualized key trends and relationships using Tableau. These vi
 
 **Compared total number of rides per month between casual and member riders:** The visualization below highlights that for casual riders, July 2022 had the highest number of bike rides followed by June 2022. On the other hand, for member riders, August 2022 had the highest number of bike rides followed by July 2022. January 2022 had the least number of bike rides for both casual and member riders.
 
-![Total number of rides per month](Sheet%203.png)
+![Total number of rides per month](Sheet%203%20(1).png)
 
 **Compared total number of rides per hour between casual and member riders:** The visualization below shows that member riders have two peak times at 8 AM (202,283 rides) and 5 PM (345,201 rides) which aligns with work commuting hours. On the other hand, casual rides increase gradually throughout the afternoon and peak at 5 PM (217,121 rides).
 
